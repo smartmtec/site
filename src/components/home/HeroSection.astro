@@ -101,6 +101,7 @@ import { Image } from "astro:assets";
   const img = document.getElementById("slider-image");
   const prev = document.getElementById("slider-prev");
   const next = document.getElementById("slider-next");
+  const slider = document.getElementById("hero-slider"); // Get the slider container
 
   function showImage(idx) {
     if (!img) return;
@@ -108,7 +109,7 @@ import { Image } from "astro:assets";
     setTimeout(() => {
       img.src = images[idx];
       img.style.opacity = 1;
-    }, 200);
+    }, 200); // Match transition duration
   }
 
   prev?.addEventListener("click", () => {
@@ -119,4 +120,32 @@ import { Image } from "astro:assets";
     current = (current + 1) % images.length;
     showImage(current);
   });
+
+  // Touch swipe functionality
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const swipeThreshold = 50; // Minimum distance for a swipe
+
+  slider?.addEventListener('touchstart', (event) => {
+    touchStartX = event.changedTouches[0].screenX;
+  }, { passive: true });
+
+  slider?.addEventListener('touchend', (event) => {
+    touchEndX = event.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const swipeDistance = touchEndX - touchStartX;
+    if (Math.abs(swipeDistance) >= swipeThreshold) {
+      if (swipeDistance < 0) {
+        // Swiped left (next image)
+        current = (current + 1) % images.length;
+      } else {
+        // Swiped right (previous image)
+        current = (current - 1 + images.length) % images.length;
+      }
+      showImage(current);
+    }
+  }
 </script>
