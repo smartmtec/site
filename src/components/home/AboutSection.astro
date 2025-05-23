@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+// src/components/home/AboutSection.astro
+---
+
+<section id="a-propos" class="py-16 md:py-24 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+          Qui sommes-nous ?
+        </h2>
+        <p class="text-gray-600 mb-4 leading-relaxed">
+          Smart Mtec est un leader dans la conception et la fabrication de
+          miroirs LED intelligents. Notre mission est d'apporter innovation et
+          élégance aux espaces résidentiels et professionnels grâce à des
+          produits de haute qualité, alliant technologie de pointe et design
+          sophistiqué.
+        </p>
+        <p class="text-gray-600 mb-6 leading-relaxed">
+          Forts d'une expertise reconnue, nous accompagnons nos clients, des
+          hôtels de luxe aux cliniques modernes, en passant par les particuliers
+          exigeants, dans la réalisation de leurs projets d'aménagement
+          lumineux.
+        </p>
+        <p class="font-semibold text-blue-600 text-lg mb-8">
+          Conception et assemblage local au Maroc.
+        </p>
+        <a
+          href="/a-propos"
+          class="text-blue-600 hover:text-blue-800 font-semibold transition duration-300"
+        >
+          En savoir plus sur notre entreprise &rarr;
+        </a>
+      </div>
+      <div class="animate-fade-in-right">
+        <div class="relative group">
+          <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+          <!-- Image optimisée avec le composant Astro Image -->
+          <Image
+            src="/images/atelier-smart.jpeg"
+            alt="Atelier de production Smart Mtec"
+            width={800}
+            height={600}
+            format="webp"
+            class="rounded-2xl shadow-2xl w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500 border border-white/20"
+          />
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

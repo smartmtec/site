@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+---
+
+<Layout title="Galerie - Smart Mtec">
+  <div class="container mx-auto px-6 py-12">
+    <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">Galerie de nos réalisations</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Exemple d'image de galerie -->
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <Image src="https://via.placeholder.com/600x400.png?text=Miroir+LED+Hôtel" alt="Miroir LED pour Hôtel" width={600} height={400} format="png" class="w-full h-64 object-cover" />
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Projet Hôtel Luxe</h3>
+          <p class="text-gray-600 text-sm">Installation de miroirs intelligents dans les suites.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <Image src="https://via.placeholder.com/600x400.png?text=Miroir+Résidentiel" alt="Miroir LED Résidentiel" width={600} height={400} format="png" class="w-full h-64 object-cover" />
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Salle de Bain Moderne</h3>
+          <p class="text-gray-600 text-sm">Miroir LED avec éclairage personnalisable.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <img src="https://via.placeholder.com/600x400.png?text=Miroir+Cabinet+Médical" alt="Miroir LED Cabinet Médical" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Cabinet Dentaire</h3>
+          <p class="text-gray-600 text-sm">Miroirs fonctionnels et esthétiques.</p>
+        </div>
+      </div>
+      
+      <!-- Ajoutez plus d'images ici -->
+       <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <img src="https://via.placeholder.com/600x400.png?text=Miroir+Sur+Mesure" alt="Miroir LED sur mesure" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Projet sur Mesure</h3>
+          <p class="text-gray-600 text-sm">Conception unique pour un client exigeant.</p>
+        </div>
+      </div>
+       <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <img src="https://via.placeholder.com/600x400.png?text=Miroir+TV+Tactile" alt="Miroir TV Tactile" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Miroir TV Salon</h3>
+          <p class="text-gray-600 text-sm">Intégration discrète d'un écran TV.</p>
+        </div>
+      </div>
+       <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <img src="https://via.placeholder.com/600x400.png?text=Autre+Réalisation" alt="Autre réalisation Smart Mtec" class="w-full h-64 object-cover">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-gray-800 mb-2">Showroom Partenaire</h3>
+          <p class="text-gray-600 text-sm">Mise en valeur de produits avec nos miroirs.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="/contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition duration-300">
+        Demander un devis pour votre projet
+      </a>
+    </div>
+  </div>
+</Layout>

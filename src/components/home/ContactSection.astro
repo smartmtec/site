@@ -1,0 +1,145 @@
+---
+// src/components/home/ContactSection.astro
+---
+
+<section id="contact" class="py-16 md:py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 relative overflow-hidden">
+  <!-- Éléments décoratifs -->
+  <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-200 to-transparent rounded-full opacity-20 -translate-y-1/2 -translate-x-1/2"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-purple-200 to-transparent rounded-full opacity-20 translate-y-1/2 translate-x-1/2"></div>
+  
+  <div class="container mx-auto px-6 relative z-10">
+    <div class="text-center mb-16">
+      <div class="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6">
+        💬 Contact
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-800 via-blue-800 to-purple-800 bg-clip-text text-transparent mb-6">
+        Discutons de votre projet
+      </h2>
+      <p class="text-gray-600 max-w-xl mx-auto text-lg leading-relaxed">
+        Contactez-nous pour obtenir un devis personnalisé ou pour toute question
+        concernant nos miroirs LED intelligents.
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-2xl shadow-2xl border border-white/50 relative overflow-hidden">
+      <!-- Effet de dégradé subtil -->
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 opacity-50"></div>
+      <div class="grid md:grid-cols-2 gap-12 relative z-10">
+        <div>
+          <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
+            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            Envoyez-nous un message
+          </h3>
+          <form action="#" method="POST">
+            <div class="mb-5">
+              <label
+                for="nom"
+                class="block mb-2 text-sm font-medium text-gray-700"
+                >Nom complet</label
+              >
+              <input
+                type="text"
+                id="nom"
+                name="nom"
+                required
+                class="w-full px-4 py-3 text-base text-gray-900 placeholder-gray-500 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-white/80 backdrop-blur-sm hover:bg-white focus:bg-white"
+              />
+            </div>
+            <div class="mb-5">
+              <label
+                for="societe"
+                class="block mb-2 text-sm font-medium text-gray-700"
+                >Société (Optionnel)</label
+              >
+              <input
+                type="text"
+                id="societe"
+                name="societe"
+                class="w-full px-4 py-3 text-base text-gray-900 placeholder-gray-500 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-white/80 backdrop-blur-sm hover:bg-white focus:bg-white"
+              />
+            </div>
+            <div class="mb-5">
+              <label
+                for="email_contact"
+                class="block mb-2 text-sm font-medium text-gray-700"
+                >Adresse e-mail</label
+              >
+              <input
+                type="email"
+                id="email_contact"
+                name="email"
+                required
+                class="w-full px-4 py-2.5 text-base text-gray-900 placeholder-gray-500 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
+            <div class="mb-5">
+              <label
+                for="message"
+                class="block mb-2 text-sm font-medium text-gray-700"
+                >Message / Type de projet</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+                class="w-full px-4 py-2.5 text-base text-gray-900 placeholder-gray-500 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 text-lg"
+            >
+              Envoyer la demande
+            </button>
+          </form>
+        </div>
+        <div>
+          <h3 class="text-2xl font-semibold text-gray-800 mb-6">
+            Nos coordonnées
+          </h3>
+          <div class="space-y-4 text-gray-700">
+            <p>
+              <strong class="font-medium">Téléphone :</strong>
+              <a href="tel:+212XXXXXXXXX" class="text-blue-600 hover:underline"
+                >+212 X XX XX XX XX</a
+              >
+            </p>
+            <p>
+              <strong class="font-medium">WhatsApp :</strong>
+              <a
+                href="https://wa.me/212XXXXXXXXX"
+                target="_blank"
+                class="text-blue-600 hover:underline">+212 X XX XX XX XX</a
+              > (Cliquez pour discuter)
+            </p>
+            <p>
+              <strong class="font-medium">E-mail :</strong>
+              <a
+                href="mailto:contact@smartmtec.ma"
+                class="text-blue-600 hover:underline">contact@smartmtec.ma</a
+              >
+            </p>
+            <p>
+              <strong class="font-medium">Adresse :</strong> Rue Exemple, Quartier
+              Industriel, Ville, Maroc (Optionnel)
+            </p>
+          </div>
+          <div class="mt-8">
+            <h4 class="text-lg font-semibold text-gray-800 mb-3">
+              Horaires d'ouverture :
+            </h4>
+            <p class="text-gray-700">Lundi - Vendredi : 9h00 - 18h00</p>
+            <p class="text-gray-700">Samedi : 9h00 - 13h00</p>
+          </div>
+          <!-- Carte optionnelle -->
+          <!-- <div class="mt-8 h-64 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500">
+            Carte Google Maps ici
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

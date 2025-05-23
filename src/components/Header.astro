@@ -1,0 +1,153 @@
+---
+import ThemeToggleButton from "./ThemeToggleButton.astro";
+import { Image } from "astro:assets";
+const navItems = [
+  { href: "/#hero", label: "Accueil" },
+  { href: "/#a-propos", label: "À propos" },
+  { href: "/#solutions", label: "Solutions" },
+  { href: "/#realisations", label: "Réalisations" },
+  { href: "/galerie", label: "Galerie" }, // ← redirige vers la page galerie
+  { href: "/#contact", label: "Contact" }, // ← va vers la section contact
+];
+---
+
+<header
+  class="bg-white dark:bg-gray-800 shadow-md text-gray-800 dark:text-gray-100"
+>
+  <nav class="max-w-7xl mx-auto px-6 xl:px-12 py-3">
+    {/* largeur augmentée */}
+    <div class="flex items-center justify-between">
+      <div>
+        <a
+          href="/"
+          class="text-2xl font-bold text-gray-800 dark:text-gray-100 lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
+        >
+          <Image
+            src="/images/logo.png"
+            alt="Smart Mtec Logo"
+            width={200}
+            taille
+            du
+            logo
+            augmentée
+            height={50}
+            class="h-12"
+            hauteur
+            augmentée
+            (optionnel)
+            format="png"
+          />
+        </a>
+      </div>
+      <div class="flex items-center space-x-1 sm:space-x-3">
+        {/* Desktop Navigation Links */}
+        <div class="hidden md:flex items-center space-x-3">
+          {
+            navItems.map((item) => (
+              <a
+                href={item.href}
+                class="py-2 px-3 text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 rounded shadow-lg hover:text-blue-600 dark:hover:text-blue-400 transition"
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </div>
+        {/* Theme Toggle Button */}
+        <ThemeToggleButton />
+        {/* Mobile menu button */}
+        <div class="md:hidden flex items-center">
+          <button
+            id="mobile-menu-button"
+            class="outline-none mobile-menu-button"
+          >
+            <svg
+              class="w-6 h-6 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    {/* Mobile Menu */}
+    <div
+      id="mobile-menu"
+      class="hidden md:hidden py-2 bg-white dark:bg-gray-800"
+    >
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class="block py-2 px-4 text-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 rounded shadow-lg mb-2 hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </div>
+  </nav>
+</header>
+
+<button
+  id="back-to-top"
+  aria-label="Retour en haut"
+  class="fixed bottom-6 right-6 z-50 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-opacity opacity-0 pointer-events-none"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M5 15l7-7 7 7"></path>
+  </svg>
+</button>
+
+<script>
+  const btn = document.getElementById("mobile-menu-button");
+  const menu = document.getElementById("mobile-menu");
+
+  btn?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+
+  // Fermer le menu si on clique en dehors (optionnel)
+  document.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement;
+    if (
+      menu &&
+      !menu.contains(target) &&
+      btn &&
+      !btn.contains(target) &&
+      !menu.classList.contains("hidden")
+    ) {
+      menu.classList.add("hidden");
+    }
+  });
+
+  const backToTopBtn = document.getElementById("back-to-top");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      backToTopBtn.classList.remove("opacity-0", "pointer-events-none");
+      backToTopBtn.classList.add("opacity-100");
+    } else {
+      backToTopBtn.classList.add("opacity-0", "pointer-events-none");
+      backToTopBtn.classList.remove("opacity-100");
+    }
+  });
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
