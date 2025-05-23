@@ -4,20 +4,20 @@ const projects = [
   {
     title: "Suite Présidentielle - Hôtel Atlas",
     location: "Marrakech",
-    imageSrc: "public/images/realisation2.jpg",
+    imageSrc: "/images/realisation2.jpg",
     altText: "Miroir LED intelligent dans une suite d'hôtel de luxe",
   },
   {
     title: "Villa Privée - Quartier Résidentiel",
     location: "Casablanca",
-    imageSrc: "public/images/realisation1.jpg",
+    imageSrc: "/images/realisation1.jpg",
     altText:
       "Installation de miroir LED dans une salle de bain de villa moderne",
   },
   {
     title: "Salon de Coiffure Tendance",
     location: "Rabat",
-    imageSrc: "public/images/realisation3.jpg",
+    imageSrc: "/images/realisation3.jpg",
     altText: "Miroirs LED pour un salon de coiffure design",
   },
 ];
@@ -38,17 +38,30 @@ const testimonials = [
 ];
 ---
 
-<section id="realisations" class="py-16 md:py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+<section
+  id="realisations"
+  class="py-16 md:py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden"
+>
   <!-- Éléments décoratifs -->
-  <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-purple-100 to-transparent rounded-full opacity-30 -translate-y-1/2 -translate-x-1/2"></div>
-  <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-blue-100 to-transparent rounded-full opacity-30 translate-y-1/2 translate-x-1/2"></div>
-  
+  <div
+    class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-purple-100 to-transparent rounded-full opacity-30 -translate-y-1/2 -translate-x-1/2"
+  >
+  </div>
+  <div
+    class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-blue-100 to-transparent rounded-full opacity-30 translate-y-1/2 translate-x-1/2"
+  >
+  </div>
+
   <div class="container mx-auto px-6 relative z-10">
     <div class="text-center mb-16">
-      <div class="inline-block px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium mb-6">
+      <div
+        class="inline-block px-4 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium mb-6"
+      >
         🏆 Nos Réalisations
       </div>
-      <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-800 via-purple-800 to-blue-800 bg-clip-text text-transparent mb-6">
+      <h2
+        class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-800 via-purple-800 to-blue-800 bg-clip-text text-transparent mb-6"
+      >
         Nos réalisations
       </h2>
       <p class="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
