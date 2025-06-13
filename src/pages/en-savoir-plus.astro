@@ -1,0 +1,166 @@
+---
+// src/pages/en-savoir-plus.astro
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+// Importer ProductSection et FitnessMirrorSection une fois créés/localisés
+// import ProductSection from '../components/ProductSection.astro'; 
+// import FitnessMirrorSection from '../components/FitnessMirrorSection.astro';
+
+const pageTitle = "En Savoir Plus - Nos Collections de Miroirs";
+const pageDescription = "Découvrez en détail nos gammes de miroirs ronds, rectangulaires et nos smart miroirs de fitness. Personnalisation, design et technologie.";
+
+// Données pour les sections produits (à remplacer par des props ou des données dynamiques si nécessaire)
+const miroirsRondsData = {
+  title: "Miroirs Ronds : L'Élégance Circulaire",
+  paragraph: "Nos miroirs ronds s'intègrent parfaitement à tous les styles d'intérieur, apportant douceur et harmonie.",
+  imageSrc: "/images/miroir-rond-dore.png", // Assurez-vous que cette image existe dans public/images
+  imageAlt: "Miroir rond avec cadre doré",
+  reversed: false,
+  details: {
+    diametres: [
+      { label: "Diamètre 60 cm" },
+      { label: "Diamètre 70 cm" },
+      { label: "Diamètre 80 cm" },
+    ],
+    personnalisation: [
+      { title: "Cadres", description: "Choisissez entre un cadre noir mat sobre ou un cadre doré élégant." },
+      { title: "Version Simple", description: "La pureté du miroir, sans éclairage." },
+      { title: "Version LED", description: "Intègre un éclairage LED doux et moderne pour une ambiance parfaite." },
+      { title: "Version Complète", description: "Le summum de la technologie avec LED, fonction anti-buée et affichage heure/température." },
+    ]
+  }
+};
+
+const miroirsRectangulairesData = {
+  title: "Miroirs Rectangulaires : Modernité et Structure",
+  paragraph: "Parfaits pour une touche contemporaine, nos miroirs rectangulaires structurent l'espace dans les salles de bains et les couloirs.",
+  imageSrc: "/images/miroir-rectangulaire-led.png", // Assurez-vous que cette image existe dans public/images
+  imageAlt: "Miroir rectangulaire avec éclairage LED intégré",
+  reversed: true,
+  details: {
+    dimensions: [
+      { label: "60x80 cm" },
+      { label: "80x60 cm" },
+      { label: "80x80 cm" },
+    ],
+    surMesureText: "Besoin d'une taille spécifique ? Chaque miroir peut être conçu sur mesure.",
+    finitions: [
+      { title: "Avec Cadre", description: "Noir ou doré pour un style affirmé." },
+      { title: "Sans Cadre", description: "Bords façonnés pour une finition minimaliste et épurée." },
+      { title: "Options", description: "Disponible en version simple, avec LED, ou avec le pack complet (anti-buée + affichage)." },
+    ]
+  }
+};
+
+const fitnessMirrorData = {
+  title: "Smart Miroirs de Fitness : Votre Coach à Domicile",
+  paragraph: "Fusionnez technologie et bien-être avec nos miroirs intelligents. Transformez votre espace en salle de sport personnelle avec un coach interactif et un suivi de performance en temps réel.",
+  features: [
+    { icon: "path/to/icon-screen.svg", text: "Écran interactif intégré (cours en direct/demande)" },
+    { icon: "path/to/icon-tracking.svg", text: "Suivi en temps réel (postures, mouvements, cardio)" },
+    { icon: "path/to/icon-compatibility.svg", text: "Compatibilité (avec les meilleures applications de fitness)" },
+    { icon: "path/to/icon-design.svg", text: "Design épuré et moderne" },
+    { icon: "path/to/icon-versatile.svg", text: "Usage polyvalent (maison, studios privés, salles de sport)" },
+  ],
+  galleryImages: [
+    { src: "/images/fitness-mirror-action1.jpg", alt: "Miroir fitness en action 1" }, // Remplacer par les vrais noms d'images
+    { src: "/images/fitness-mirror-action2.jpg", alt: "Miroir fitness en action 2" }, // Remplacer par les vrais noms d'images
+  ],
+  conclusion: "L'expérience immersive parfaite pour le yoga, le cardio, la musculation et plus encore."
+};
+
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <PageHeader />
+
+  <main class="bg-gray-50 dark:bg-gray-900">
+    <!-- Section Miroirs Ronds -->
+    <section id="miroirs-ronds" class="py-12 sm:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Placeholder pour ProductSection -->
+        <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8">
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white font-playfair mb-4">{miroirsRondsData.title}</h2>
+          <p class="text-gray-600 dark:text-gray-300 font-inter mb-6">{miroirsRondsData.paragraph}</p>
+          <img src={miroirsRondsData.imageSrc} alt={miroirsRondsData.imageAlt} class="w-full h-auto rounded-md mb-6 max-w-md mx-auto" />
+          <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100 font-playfair mt-6 mb-3">Trois Diamètres Standards</h3>
+          <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 font-inter space-y-1">
+            {miroirsRondsData.details.diametres.map(item => <li>{item.label}</li>)}
+          </ul>
+          <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100 font-playfair mt-6 mb-3">Options de Personnalisation</h3>
+          <div class="space-y-4 font-inter">
+            {miroirsRondsData.details.personnalisation.map(opt => (
+              <div>
+                <h4 class="font-semibold text-gray-700 dark:text-gray-200">{opt.title}</h4>
+                <p class="text-gray-600 dark:text-gray-300">{opt.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <!-- Fin Placeholder ProductSection -->
+      </div>
+    </section>
+
+    <!-- Section Miroirs Rectangulaires -->
+    <section id="miroirs-rectangulaires" class="py-12 sm:py-16 bg-white dark:bg-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Placeholder pour ProductSection (reversed) -->
+        <div class="bg-gray-50 dark:bg-gray-900 shadow-lg rounded-lg p-8">
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white font-playfair mb-4">{miroirsRectangulairesData.title}</h2>
+          <p class="text-gray-600 dark:text-gray-300 font-inter mb-6">{miroirsRectangulairesData.paragraph}</p>
+          <img src={miroirsRectangulairesData.imageSrc} alt={miroirsRectangulairesData.imageAlt} class="w-full h-auto rounded-md mb-6 max-w-md mx-auto" />
+          <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100 font-playfair mt-6 mb-3">Dimensions Standards & Sur Mesure</h3>
+          <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 font-inter space-y-1">
+            {miroirsRectangulairesData.details.dimensions.map(item => <li>{item.label}</li>)}
+          </ul>
+          <p class="mt-3 p-3 bg-yellow-100 dark:bg-yellow-700 text-yellow-800 dark:text-yellow-200 rounded-md font-inter">{miroirsRectangulairesData.details.surMesureText}</p>
+          <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100 font-playfair mt-6 mb-3">Finitions et Fonctionnalités</h3>
+          <div class="space-y-4 font-inter">
+            {miroirsRectangulairesData.details.finitions.map(opt => (
+              <div>
+                <h4 class="font-semibold text-gray-700 dark:text-gray-200">{opt.title}</h4>
+                <p class="text-gray-600 dark:text-gray-300">{opt.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <!-- Fin Placeholder ProductSection (reversed) -->
+      </div>
+    </section>
+
+    <!-- Section Smart Miroirs de Fitness -->
+    <section id="miroirs-fitness" class="py-12 sm:py-16 bg-slate-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <!-- Placeholder pour FitnessMirrorSection -->
+        <div class="p-8">
+          <h2 class="text-3xl sm:text-4xl font-bold font-playfair mb-6">{fitnessMirrorData.title}</h2>
+          <p class="text-lg sm:text-xl text-slate-300 font-inter max-w-3xl mx-auto mb-10">{fitnessMirrorData.paragraph}</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10 font-inter">
+            {fitnessMirrorData.features.map(feature => (
+              <div class="bg-slate-800 p-6 rounded-lg shadow-md">
+                {/* Icône à ajouter ici si disponible: <img src={feature.icon} alt="" class="h-8 w-8 mx-auto mb-3" /> */}
+                <p class="text-slate-200">{feature.text}</p>
+              </div>
+            ))}
+          </div>
+
+          <h3 class="text-2xl font-semibold font-playfair mb-6">Galerie d'Images</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+            {fitnessMirrorData.galleryImages.map(image => (
+              <img src={image.src} alt={image.alt} class="w-full h-auto rounded-lg shadow-lg" />
+            ))}
+          </div>
+
+          <p class="text-lg text-slate-300 font-inter max-w-2xl mx-auto">{fitnessMirrorData.conclusion}</p>
+        </div>
+        <!-- Fin Placeholder FitnessMirrorSection -->
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* Styles spécifiques à cette page si nécessaire, sinon Tailwind s'en charge */
+  /* Assurer la cohérence avec global.css et animations.css */
+</style>

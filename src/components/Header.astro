@@ -5,6 +5,7 @@ const navItems = [
   { href: "/#hero", label: "Accueil" },
   { href: "/#a-propos", label: "À propos" },
   { href: "/#solutions", label: "Solutions" },
+  { href: "/en-savoir-plus", label: "En Savoir Plus" },
   { href: "/#realisations", label: "Réalisations" },
   { href: "/galerie", label: "Galerie" }, // ← redirige vers la page galerie
   { href: "/#contact", label: "Contact" }, // ← va vers la section contact
@@ -23,18 +24,19 @@ const navItems = [
           class="text-2xl font-bold text-gray-800 dark:text-gray-100 lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
         >
           <Image
-            src="/images/logo.png"
-            alt="Smart Mtec Logo"
-            width={200}
-            taille
-            du
-            logo
-            augmentée
+            src="/images/logo.png" 
+            alt="Smart Mtec Logo Light"
+            width={180}
             height={50}
-            class="h-12"
-            hauteur
-            augmentée
-            (optionnel)
+            class="h-12 dark:hidden" 
+            format="png"
+          />
+          <Image
+            src="/images/logo-light.png" 
+            alt="Smart Mtec Logo Dark"
+            width={180}
+            height={50}
+            class="h-12 hidden dark:block" 
             format="png"
           />
         </a>

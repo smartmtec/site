@@ -1,60 +1,67 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
+// Supprimer { Image } car nous utiliserons des <img> standards pour simplifier
+// import { Image } from 'astro:assets';
+
+const galleryImages = [
+  {
+    src: "/images/Miroir TV Tactile.jpg",
+    alt: "Miroir TV Tactile - Smart Mtec"
+  },
+  {
+    src: "/images/Miroir pour hotel et espace professionelle.jpg",
+    alt: "Miroir pour hôtel et espace professionnel - Smart Mtec"
+  },
+  {
+    src: "/images/realisation2.jpg",
+    alt: "Réalisation Smart Mtec - Cabinet Dentaire"
+  },
+  {
+    src: "/images/realisation3.jpg",
+    alt: "Réalisation Smart Mtec - Projet sur Mesure"
+  },
+  {
+    src: "/images/Miroir avec eclairage LED.jpg", // Utilisée deux fois, peut-être une autre image ici?
+    alt: "Miroir TV Salon - Smart Mtec"
+  },
+  {
+    src: "/images/Miroir residentiel pour salle de bain anti buee et LED.jpg",
+    alt: "Miroir résidentiel pour salle de bain - Smart Mtec"
+  },
+  {
+    src: "/images/Miroir de Sport.jpg",
+    alt: "Miroir de Sport - Smart Mtec"
+  },
+  {
+    src: "/images/Miroir sur mesure fabrication personnalise.jpg",
+    alt: "Miroir sur mesure - Smart Mtec"
+  }
+  // Ajoutez d'autres images ici simplement en ajoutant un objet { src: "/path/to/image.jpg", alt: "Description" }
+];
 ---
+
 
 <Layout title="Galerie - Smart Mtec">
   <div class="container mx-auto px-6 py-12">
-    <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">Galerie de nos réalisations</h1>
+    <h1 class="text-4xl font-bold text-center text-gray-800 dark:text-white mb-12">Galerie de nos réalisations</h1>
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Exemple d'image de galerie -->
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-        <Image src="https://via.placeholder.com/600x400.png?text=Miroir+LED+Hôtel" alt="Miroir LED pour Hôtel" width={600} height={400} format="png" class="w-full h-64 object-cover" />
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Projet Hôtel Luxe</h3>
-          <p class="text-gray-600 text-sm">Installation de miroirs intelligents dans les suites.</p>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" id="gallery-grid">
+      {galleryImages.map(image => (
+        <div class="aspect-square overflow-hidden rounded-lg shadow-lg cursor-pointer group">
+          <img 
+            src={image.src} 
+            alt={image.alt} 
+            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
+            onclick={`openModal('${image.src}')`}
+          />
         </div>
-      </div>
+      ))}
+    </div>
 
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-        <Image src="https://via.placeholder.com/600x400.png?text=Miroir+Résidentiel" alt="Miroir LED Résidentiel" width={600} height={400} format="png" class="w-full h-64 object-cover" />
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Salle de Bain Moderne</h3>
-          <p class="text-gray-600 text-sm">Miroir LED avec éclairage personnalisable.</p>
-        </div>
-      </div>
-
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-        <img src="https://via.placeholder.com/600x400.png?text=Miroir+Cabinet+Médical" alt="Miroir LED Cabinet Médical" class="w-full h-64 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Cabinet Dentaire</h3>
-          <p class="text-gray-600 text-sm">Miroirs fonctionnels et esthétiques.</p>
-        </div>
-      </div>
-      
-      <!-- Ajoutez plus d'images ici -->
-       <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-        <img src="https://via.placeholder.com/600x400.png?text=Miroir+Sur+Mesure" alt="Miroir LED sur mesure" class="w-full h-64 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Projet sur Mesure</h3>
-          <p class="text-gray-600 text-sm">Conception unique pour un client exigeant.</p>
-        </div>
-      </div>
-       <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-        <img src="https://via.placeholder.com/600x400.png?text=Miroir+TV+Tactile" alt="Miroir TV Tactile" class="w-full h-64 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Miroir TV Salon</h3>
-          <p class="text-gray-600 text-sm">Intégration discrète d'un écran TV.</p>
-        </div>
-      </div>
-       <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-        <img src="https://via.placeholder.com/600x400.png?text=Autre+Réalisation" alt="Autre réalisation Smart Mtec" class="w-full h-64 object-cover">
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Showroom Partenaire</h3>
-          <p class="text-gray-600 text-sm">Mise en valeur de produits avec nos miroirs.</p>
-        </div>
-      </div>
+    <!-- Modal pour afficher l'image en grand -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 hidden z-50" onclick="closeModal()">
+      <img id="modalImage" src="" alt="Image agrandie" class="max-w-full max-h-full object-contain rounded-lg shadow-xl" onclick="event.stopPropagation()"/>
+      <button class="absolute top-4 right-4 text-white text-3xl font-bold" onclick="closeModal()">&times;</button>
     </div>
 
     <div class="text-center mt-12">
@@ -63,4 +70,33 @@ import { Image } from 'astro:assets';
       </a>
     </div>
   </div>
+
+  <script is:inline>
+    function openModal(imageSrc) {
+      const modal = document.getElementById('imageModal');
+      const modalImage = document.getElementById('modalImage');
+      modalImage.src = imageSrc;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // Empêcher le défilement de l'arrière-plan
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('imageModal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto'; // Rétablir le défilement
+    }
+
+    // Fermer le modal avec la touche Échap
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
 </Layout>
+
+<style>
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+</style>
