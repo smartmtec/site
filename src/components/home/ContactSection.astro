@@ -6,7 +6,7 @@
   <!-- Éléments décoratifs -->
   <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-200 to-transparent rounded-full opacity-20 -translate-y-1/2 -translate-x-1/2"></div>
   <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-purple-200 to-transparent rounded-full opacity-20 translate-y-1/2 translate-x-1/2"></div>
-  
+
   <div class="container mx-auto px-6 relative z-10">
     <div class="text-center mb-16">
       <div class="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6">
@@ -32,7 +32,7 @@
             </svg>
             Envoyez-nous un message
           </h3>
-          <form action="#" method="POST">
+          <form id="contactForm">
             <div class="mb-5">
               <label
                 for="nom"
@@ -95,6 +95,7 @@
               Envoyer la demande
             </button>
           </form>
+          <div id="form-message" class="mt-4 text-sm"></div>
         </div>
         <div>
           <h3 class="text-2xl font-semibold text-gray-800 mb-6">
@@ -103,7 +104,7 @@
           <div class="space-y-4 text-gray-700">
             <p>
               <strong class="font-medium">Téléphone :</strong>
-              <a href="tel:0666945150" class="text-blue-600 hover:underline">0666945150</a> / 
+              <a href="tel:0666945150" class="text-blue-600 hover:underline">0666945150</a> /
               <a href="tel:0655563845" class="text-blue-600 hover:underline">0655563845</a>
             </p>
             <p>
@@ -141,3 +142,52 @@
     </div>
   </div>
 </section>
+
+<script lang="ts">
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm') as HTMLFormElement | null;
+    const formMessage = document.getElementById('form-message');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData);
+
+        try {
+          const response = await fetch('/.netlify/functions/send-email', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+            if (formMessage) {
+              formMessage.className = 'text-green-500';
+              formMessage.textContent = result.message;
+            }
+            contactForm.reset();
+          } else {
+            if (formMessage) {
+              formMessage.className = 'text-red-500';
+              formMessage.textContent = result.message || 'Une erreur s\'est produite lors de l\'envoi.';
+            }
+          }
+        } catch (error) {
+          console.error('Erreur lors de l\'envoi du formulaire:', error);
+          if (formMessage) {
+            formMessage.className = 'text-red-500';
+            formMessage.textContent = 'Une erreur réseau s\'est produite. Veuillez réessayer.';
+          }
+        }
+      });
+    } else {
+      console.error('Le formulaire de contact n\'a pas été trouvé dans le DOM.');
+    }
+  });
+</script>
