@@ -1,18 +1,27 @@
----
-// src/components/home/ContactSection.astro
----
-
-<section id="contact" class="py-16 md:py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 relative overflow-hidden">
+<section
+  id="contact"
+  class="py-16 md:py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 relative overflow-hidden"
+>
   <!-- Éléments décoratifs -->
-  <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-200 to-transparent rounded-full opacity-20 -translate-y-1/2 -translate-x-1/2"></div>
-  <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-purple-200 to-transparent rounded-full opacity-20 translate-y-1/2 translate-x-1/2"></div>
+  <div
+    class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-200 to-transparent rounded-full opacity-20 -translate-y-1/2 -translate-x-1/2"
+  >
+  </div>
+  <div
+    class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-purple-200 to-transparent rounded-full opacity-20 translate-y-1/2 translate-x-1/2"
+  >
+  </div>
 
   <div class="container mx-auto px-6 relative z-10">
     <div class="text-center mb-16">
-      <div class="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6">
+      <div
+        class="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6"
+      >
         💬 Contact
       </div>
-      <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-800 via-blue-800 to-purple-800 bg-clip-text text-transparent mb-6">
+      <h2
+        class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-800 via-blue-800 to-purple-800 bg-clip-text text-transparent mb-6"
+      >
         Discutons de votre projet
       </h2>
       <p class="text-gray-600 max-w-xl mx-auto text-lg leading-relaxed">
@@ -21,173 +30,159 @@
       </p>
     </div>
 
-    <div class="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-2xl shadow-2xl border border-white/50 relative overflow-hidden">
+    <div
+      class="max-w-3xl mx-auto bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-2xl shadow-2xl border border-white/50 relative overflow-hidden"
+    >
       <!-- Effet de dégradé subtil -->
-      <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 opacity-50"></div>
-      <div class="grid md:grid-cols-2 gap-12 relative z-10">
-        <div>
-          <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-            </svg>
-            Envoyez-nous un message
-          </h3>
-          <form id="contactForm">
-            <div class="mb-5">
-              <label
-                for="nom"
-                class="block mb-2 text-sm font-medium text-gray-700"
-                >Nom complet</label
-              >
-              <input
-                type="text"
-                id="nom"
-                name="nom"
-                required
-                class="w-full px-4 py-3 text-base text-gray-900 placeholder-gray-500 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-white/80 backdrop-blur-sm hover:bg-white focus:bg-white"
-              />
-            </div>
-            <div class="mb-5">
-              <label
-                for="societe"
-                class="block mb-2 text-sm font-medium text-gray-700"
-                >Société (Optionnel)</label
-              >
-              <input
-                type="text"
-                id="societe"
-                name="societe"
-                class="w-full px-4 py-3 text-base text-gray-900 placeholder-gray-500 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 bg-white/80 backdrop-blur-sm hover:bg-white focus:bg-white"
-              />
-            </div>
-            <div class="mb-5">
-              <label
-                for="email_contact"
-                class="block mb-2 text-sm font-medium text-gray-700"
-                >Adresse e-mail</label
-              >
-              <input
-                type="email"
-                id="email_contact"
-                name="email"
-                required
-                class="w-full px-4 py-2.5 text-base text-gray-900 placeholder-gray-500 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              />
-            </div>
-            <div class="mb-5">
-              <label
-                for="message"
-                class="block mb-2 text-sm font-medium text-gray-700"
-                >Message / Type de projet</label
-              >
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                required
-                class="w-full px-4 py-2.5 text-base text-gray-900 placeholder-gray-500 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 text-lg"
-            >
-              Envoyer la demande
-            </button>
-          </form>
-          <div id="form-message" class="mt-4 text-sm"></div>
-        </div>
-        <div>
-          <h3 class="text-2xl font-semibold text-gray-800 mb-6">
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 opacity-50"
+      >
+      </div>
+      <div class="relative z-10">
+        <div class="text-center md:text-left">
+          <h3 class="text-2xl font-bold text-gray-800 mb-8 text-center">
             Nos coordonnées
           </h3>
-          <div class="space-y-4 text-gray-700">
-            <p>
-              <strong class="font-medium">Téléphone :</strong>
-              <a href="tel:0666945150" class="text-blue-600 hover:underline">0666945150</a> /
-              <a href="tel:0655563845" class="text-blue-600 hover:underline">0655563845</a>
+
+          <!-- Bloc e-mail mis en valeur avec bouton Copier -->
+          <div
+            class="mb-10 p-6 bg-blue-50/70 border-2 border-blue-200/50 rounded-2xl text-center shadow-inner"
+          >
+            <p class="text-sm font-medium text-blue-800 mb-2">
+              Notre canal de contact privilégié
             </p>
-            <p>
-              <strong class="font-medium">WhatsApp :</strong>
-              <a
-                href="https://wa.me/212666945150"
-                target="_blank"
-                class="text-blue-600 hover:underline">0666945150</a
-              > (Cliquez pour discuter)
-            </p>
-            <p>
-              <strong class="font-medium">E-mail :</strong>
-              <a
-                href="mailto:Smartmtecofficial@gmail.com"
-                class="text-blue-600 hover:underline">Smartmtecofficial@gmail.com</a
+            <div class="flex items-center justify-center gap-3">
+              <svg
+                class="w-6 h-6 text-blue-600 flex-shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-            </p>
-            <p>
-              <strong class="font-medium">Adresse :</strong> Numero 79 hay Inara 3 meknes
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
+              </svg>
+              <span
+                id="emailAddress"
+                class="text-lg md:text-xl font-bold text-blue-700"
+              >
+                contact@smartmtec.ma
+              </span>
+              <button
+                id="copyButton"
+                title="Copier l'adresse e-mail"
+                class="p-2 rounded-md hover:bg-blue-200/50 transition-colors"
+              >
+                <svg
+                  class="w-5 h-5 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <p
+              id="copyFeedback"
+              class="text-sm text-green-600 font-semibold mt-2 h-5"
+            >
             </p>
           </div>
-          <div class="mt-8">
-            <h4 class="text-lg font-semibold text-gray-800 mb-3">
-              Horaires d'ouverture :
-            </h4>
-            <p class="text-gray-700">Lundi - Vendredi : 9h00 - 18h00</p>
-            <p class="text-gray-700">Samedi : 9h00 - 13h00</p>
+
+          <div class="grid md:grid-cols-2 gap-8 text-center md:text-left">
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800 mb-3">
+                Autres contacts
+              </h4>
+              <div class="space-y-2 text-gray-700">
+                <p>
+                  <strong class="font-medium">Téléphone :</strong>
+                  <a href="tel:0666945150" class="text-blue-600 hover:underline"
+                    >0666945150</a
+                  > /
+                  <a href="tel:0655563845" class="text-blue-600 hover:underline"
+                    >0655563845</a
+                  >
+                </p>
+                <p>
+                  <strong class="font-medium">WhatsApp :</strong>
+                  <a
+                    href="https://wa.me/212666945150"
+                    target="_blank"
+                    class="text-blue-600 hover:underline inline-flex items-center gap-1.5"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-5 h-5 text-green-500"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M16.75 13.96c.25.13.41.2.46.3.05.1.03.43-.02.92-.05.49-.3.93-.58 1.03-.28.1-.63.11-1.02-.03-.39-.13-1.02-.36-1.88-1.08-1.16-.9-2.04-2.04-2.2-2.32-.17-.28-.34-.56-.34-.84s.17-.48.34-.65c.17-.17.34-.28.48-.36.14-.08.28-.17.41-.17.14,0,.28,0,.39.08.1.08.17.25.25.41.08.17.11.28.11.36s0,.17-.08.34a.94.94,0,0,1-.2.31c-.08.1-.17.17-.25.25-.08.08-.13.17-.08.31.05.14.28.56.63.92.34.34.75.65.92.73.17.08.25.05.34-.02.1-.08.36-.41.49-.56.13-.14.25-.14.41-.08zm-4.75-9.96c-4.42,0-8,3.58-8,8,0,1.79.58,3.45,1.56,4.84l-1.35,4.9,5.02-1.32c1.35.86,2.94,1.38,4.64,1.38,4.42,0,8-3.58,8-8s-3.58-8-8-8zm0,14.5c-1.5,0-2.9-.44-4.13-1.22l-.29-.17-3.07.8, .82-3.01-.19-.31c-.86-1.28-1.38-2.82-1.38-4.48,0-3.59,2.91-6.5,6.5-6.5s6.5,2.91,6.5,6.5-2.91,6.5-6.5,6.5z"
+                      ></path>
+                    </svg>
+                    0666945150
+                  </a>
+                </p>
+                <p>
+                  <strong class="font-medium">Adresse :</strong><br />
+                  Numero 79 hay Inara 3 meknes
+                </p>
+              </div>
+            </div>
+            <div>
+              <h4 class="text-lg font-semibold text-gray-800 mb-3">
+                Horaires d'ouverture
+              </h4>
+              <p class="text-gray-700">Lundi - Vendredi : 9h00 - 18h00</p>
+              <p class="text-gray-700">Samedi : 9h00 - 13h00</p>
+            </div>
           </div>
-          <!-- Carte optionnelle -->
-          <!-- <div class="mt-8 h-64 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500">
-            Carte Google Maps ici
-          </div> -->
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<script lang="ts">
-  document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('contactForm') as HTMLFormElement | null;
-    const formMessage = document.getElementById('form-message');
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const copyButton = document.getElementById("copyButton");
+    const emailAddressSpan = document.getElementById("emailAddress");
+    const copyFeedback = document.getElementById("copyFeedback");
 
-    if (contactForm) {
-      contactForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
+    if (copyButton && emailAddressSpan && copyFeedback) {
+      copyButton.addEventListener("click", () => {
+        const email = emailAddressSpan.textContent;
+        if (!email) return;
 
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-
-        try {
-          const response = await fetch('/.netlify/functions/send-email', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
+        navigator.clipboard
+          .writeText(email)
+          .then(() => {
+            // Succès de la copie
+            copyFeedback.textContent = "Copié !";
+            // Efface le message après 3 secondes
+            setTimeout(() => {
+              copyFeedback.textContent = "";
+            }, 3000);
+          })
+          .catch((err) => {
+            // Erreur lors de la copie
+            console.error("Erreur lors de la copie de l'e-mail: ", err);
+            copyFeedback.textContent = "Erreur";
+            setTimeout(() => {
+              copyFeedback.textContent = "";
+            }, 3000);
           });
-
-          const result = await response.json();
-
-          if (response.ok) {
-            if (formMessage) {
-              formMessage.className = 'text-green-500';
-              formMessage.textContent = result.message;
-            }
-            contactForm.reset();
-          } else {
-            if (formMessage) {
-              formMessage.className = 'text-red-500';
-              formMessage.textContent = result.message || 'Une erreur s\'est produite lors de l\'envoi.';
-            }
-          }
-        } catch (error) {
-          console.error('Erreur lors de l\'envoi du formulaire:', error);
-          if (formMessage) {
-            formMessage.className = 'text-red-500';
-            formMessage.textContent = 'Une erreur réseau s\'est produite. Veuillez réessayer.';
-          }
-        }
       });
-    } else {
-      console.error('Le formulaire de contact n\'a pas été trouvé dans le DOM.');
     }
   });
 </script>
