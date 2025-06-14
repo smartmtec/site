@@ -1,71 +1,95 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 // Supprimer { Image } car nous utiliserons des <img> standards pour simplifier
 // import { Image } from 'astro:assets';
 
 const galleryImages = [
   {
     src: "/images/Miroir TV Tactile.jpg",
-    alt: "Miroir TV Tactile - Smart Mtec"
+    alt: "Miroir TV Tactile - Smart Mtec",
   },
   {
     src: "/images/Miroir pour hotel et espace professionelle.jpg",
-    alt: "Miroir pour hôtel et espace professionnel - Smart Mtec"
+    alt: "Miroir pour hôtel et espace professionnel - Smart Mtec",
   },
   {
     src: "/images/realisation2.jpg",
-    alt: "Réalisation Smart Mtec - Cabinet Dentaire"
+    alt: "Réalisation Smart Mtec - Cabinet Dentaire",
   },
   {
     src: "/images/realisation3.jpg",
-    alt: "Réalisation Smart Mtec - Projet sur Mesure"
+    alt: "Réalisation Smart Mtec - Projet sur Mesure",
   },
   {
     src: "/images/Miroir avec eclairage LED.jpg", // Utilisée deux fois, peut-être une autre image ici?
-    alt: "Miroir TV Salon - Smart Mtec"
+    alt: "Miroir TV Salon - Smart Mtec",
   },
   {
     src: "/images/Miroir residentiel pour salle de bain anti buee et LED.jpg",
-    alt: "Miroir résidentiel pour salle de bain - Smart Mtec"
+    alt: "Miroir résidentiel pour salle de bain - Smart Mtec",
   },
   {
     src: "/images/Miroir de Sport.jpg",
-    alt: "Miroir de Sport - Smart Mtec"
+    alt: "Miroir de Sport - Smart Mtec",
   },
   {
     src: "/images/Miroir sur mesure fabrication personnalise.jpg",
-    alt: "Miroir sur mesure - Smart Mtec"
-  }
+    alt: "Miroir sur mesure - Smart Mtec",
+  },
   // Ajoutez d'autres images ici simplement en ajoutant un objet { src: "/path/to/image.jpg", alt: "Description" }
 ];
 ---
 
-
 <Layout title="Galerie - Smart Mtec">
   <div class="container mx-auto px-6 py-12">
-    <h1 class="text-4xl font-bold text-center text-gray-800 dark:text-white mb-12">Galerie de nos réalisations</h1>
-    
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" id="gallery-grid">
-      {galleryImages.map(image => (
-        <div class="aspect-square overflow-hidden rounded-lg shadow-lg cursor-pointer group">
-          <img 
-            src={image.src} 
-            alt={image.alt} 
-            class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
-            onclick={`openModal('${image.src}')`}
-          />
-        </div>
-      ))}
+    <h1
+      class="text-4xl font-bold text-center text-gray-800 dark:text-white mb-12"
+    >
+      Galerie de nos réalisations
+    </h1>
+
+    <div
+      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
+      id="gallery-grid"
+    >
+      {
+        galleryImages.map((image) => (
+          <div class="aspect-square overflow-hidden rounded-lg shadow-lg cursor-pointer group">
+            <img
+              src={image.src}
+              alt={image.alt}
+              class="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
+              onclick={`openModal('${image.src}')`}
+            />
+          </div>
+        ))
+      }
     </div>
 
     <!-- Modal pour afficher l'image en grand -->
-    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 hidden z-50" onclick="closeModal()">
-      <img id="modalImage" src="" alt="Image agrandie" class="max-w-full max-h-full object-contain rounded-lg shadow-xl" onclick="event.stopPropagation()"/>
-      <button class="absolute top-4 right-4 text-white text-3xl font-bold" onclick="closeModal()">&times;</button>
+    <div
+      id="imageModal"
+      class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 hidden z-50"
+      onclick="closeModal()"
+    >
+      <img
+        id="modalImage"
+        src=""
+        alt="Image agrandie"
+        class="max-w-full max-h-full object-contain rounded-lg shadow-xl"
+        onclick="event.stopPropagation()"
+      />
+      <button
+        class="absolute top-4 right-4 text-white text-3xl font-bold"
+        onclick="closeModal()">&times;</button
+      >
     </div>
 
     <div class="text-center mt-12">
-      <a href="/contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition duration-300">
+      <a
+        href="/#contact"
+        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition duration-300"
+      >
         Demander un devis pour votre projet
       </a>
     </div>
@@ -73,22 +97,22 @@ const galleryImages = [
 
   <script is:inline>
     function openModal(imageSrc) {
-      const modal = document.getElementById('imageModal');
-      const modalImage = document.getElementById('modalImage');
+      const modal = document.getElementById("imageModal");
+      const modalImage = document.getElementById("modalImage");
       modalImage.src = imageSrc;
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden'; // Empêcher le défilement de l'arrière-plan
+      modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden"; // Empêcher le défilement de l'arrière-plan
     }
 
     function closeModal() {
-      const modal = document.getElementById('imageModal');
-      modal.classList.add('hidden');
-      document.body.style.overflow = 'auto'; // Rétablir le défilement
+      const modal = document.getElementById("imageModal");
+      modal.classList.add("hidden");
+      document.body.style.overflow = "auto"; // Rétablir le défilement
     }
 
     // Fermer le modal avec la touche Échap
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
         closeModal();
       }
     });
